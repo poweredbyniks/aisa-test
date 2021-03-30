@@ -46,3 +46,6 @@ target/
 
 # Saved data
 resources/
+mvnw
+mvnw.cmd
+
