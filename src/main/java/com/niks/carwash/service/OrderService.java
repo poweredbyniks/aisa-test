@@ -28,11 +28,14 @@ public class OrderService {
     public void create(@NotNull final Order order) {
         LocalTime orderStart = order.getTimeStart();
         LocalDate orderDate = order.getDate();
-        boolean isDiscounted = (orderStart.isBefore(LocalTime.parse("07:00"))
+        boolean isDiscounted = (
+                orderStart.isBefore(LocalTime.parse("07:00"))
                 &&
                 orderStart.isAfter(LocalTime.parse("23:00"))
-                || orderDate.getDayOfWeek() == DayOfWeek.SATURDAY
-                || order.getDate().getDayOfWeek() == DayOfWeek.SUNDAY);
+                ||
+                orderDate.getDayOfWeek() == DayOfWeek.SATURDAY
+                ||
+                order.getDate().getDayOfWeek() == DayOfWeek.SUNDAY);
         if (isDiscounted) {
             order.setTotalPrice(order.getTotalPrice() * 0.7);
             orderRepository.save(order);

@@ -25,7 +25,7 @@ public class Order {
     private LocalDate date;
     private LocalTime timeStart;
     private LocalTime timeEnd;
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //@OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Position> serviceList;
     private Double totalPrice;
 }

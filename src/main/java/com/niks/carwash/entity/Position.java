@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "price_list")
+//@Table(name = "price_list")
 @Getter
 @Setter
 @NoArgsConstructor
