@@ -1,12 +1,11 @@
 package com.niks.carwash.service;
 
-import com.niks.carwash.entity.Client;
+import com.niks.carwash.OrderProcessor;
 import com.niks.carwash.entity.Order;
 import com.niks.carwash.repository.ClientRepository;
 import com.niks.carwash.repository.OrderRepository;
 import com.niks.carwash.repository.PositionRepository;
 import com.sun.istack.NotNull;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +36,8 @@ public class OrderService {
         order.setPositions(positionRepository.getOne(positionID));
         order.setPrice(positionRepository.getOne(positionID).getPrice());
         orderRepository.save(order);
+        OrderProcessor orderProcessor = new OrderProcessor();
+        orderProcessor.addToQueue(order);
     }
 
     public List<Order> showAll() {

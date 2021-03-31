@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Position {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long positionID;
     private String name;
     private Long duration;
