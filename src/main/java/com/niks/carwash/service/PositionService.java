@@ -40,11 +40,6 @@ public class PositionService {
     }
 
     @NotNull
-    public List<Position> findByName(@NotNull final String name) {
-        return positionRepository.findPricePositionByName(name);
-    }
-
-    @NotNull
     public void removeByID(@NotNull final Long ID) {
         positionRepository.deleteById(ID);
     }

@@ -21,8 +21,9 @@ public class OrderController {
 
     @PostMapping("/orders")
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody final Order order) {
-        orderService.create(order);
+    public void create(@RequestParam (name = "clientID") final Long clientID,
+                       @RequestParam (name = "position") final Long positionID) {
+        orderService.create(clientID, positionID);
     }
 
     @GetMapping("/orders/")
@@ -30,10 +31,6 @@ public class OrderController {
         return orderService.showAll();
     }
 
-//    @GetMapping("/orders/waiting-time")
-//    public Long waitingTime() {
-//
-//    }
 
     @GetMapping("/orders/{ID}")
     public Order findByID(@PathVariable("ID") final Long ID) {

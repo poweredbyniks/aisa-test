@@ -8,15 +8,16 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-//@Table(name = "price_list")
+@Table(name = "positions")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Position {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long position_ID;
+    private Long positionID;
     private String name;
     private Long duration;
     private Long price;

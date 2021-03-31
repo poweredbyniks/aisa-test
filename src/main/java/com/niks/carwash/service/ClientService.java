@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
 @Transactional
 @Service
@@ -32,11 +31,6 @@ public class ClientService {
             client = clientRepository.findById(ID).get();
         }
         return client;
-    }
-
-    @NotNull
-    public List<Client> findByName(@NotNull final String name) {
-        return clientRepository.findClientsByFirstNameAndAndLastName(name);
     }
 
     @NotNull

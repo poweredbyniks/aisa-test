@@ -35,11 +35,6 @@ public class PositionController {
         return positionService.findByID(ID);
     }
 
-    @GetMapping("/positions/{name}")
-    public List<Position> findByName(@PathVariable("name") final String name) {
-        return positionService.findByName(name);
-    }
-
     @DeleteMapping("/positions/{ID}")
     public void deleteByID(@PathVariable("ID") final Long ID) {
         positionService.removeByID(ID);
